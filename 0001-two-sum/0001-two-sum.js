@@ -13,4 +13,5 @@ var twoSum = function (nums, target) {
         map.set(nums[index], index);
     }
     return [];
+    
 };
