@@ -30,7 +30,8 @@ var maxProfit = function(prices) {
     // }
 
     // return max;
-    
+
+    // optimised (time complexity - O(n))
     let max = Number.MIN_VALUE;
     let minSoFar = prices[0];
 
@@ -40,6 +41,4 @@ var maxProfit = function(prices) {
     }
 
     return max;
-    
-
 };
