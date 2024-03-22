@@ -5,22 +5,23 @@
  */
 var maxSlidingWindow = function(nums, k) {
     let result =[];
-    let queue = [];
+    let arr = [];
     let i = 0;
     
-    while(i<nums.length){
-        if(queue.length>0 && queue[0]==i-k){
-            queue.shift();
+    while(i<nums.length){ // loop entire array
+        if(arr.length>0 && arr[0]==i-k){
+            arr.shift(); // if not bound in the window remove from the beginning
         }
         
-        while(queue.length>0 && nums[queue[queue.length-1]]<nums[i]){
-            queue.pop();
+        while(arr.length>0 && nums[arr[arr.length-1]]<nums[i]){
+            arr.pop(); // compare the last element in the arr with the current element, remove it if less then current element
+                        // if larger number then the numbers in the arr is found, we will keep it else remove all smaller number. 
         }
         
-        queue.push(i)
+        arr.push(i) // pushing it because it is the largest in the arr, since smaller elements were compared and removed
         
-        if(i>=k-1){
-            result.push(nums[queue[0]]);
+        if(i>=k-1){ // check if window size is reached
+            result.push(nums[arr[0]]); // push the nums value with 1st arr value in to the result arr
         }
         i++;
     }
